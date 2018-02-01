@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180201174923) do
     t.string "commenter"
     t.text "body"
     t.integer "link_id"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["link_id"], name: "index_comments_on_link_id"
