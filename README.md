@@ -43,8 +43,10 @@ Pour lancer les tests :
 
 ---
 
-Mode with <3 in Bordeaux - Pierrick & Simon
+Mode with <3 in Bordeaux - Pierrick, Arnold, Jérémy & Simon
 
 Respectivement sur Slack :
 * @Pierrick
+* @domoya_arnold
+* @sabadie.jeremy
 * @simwyck
