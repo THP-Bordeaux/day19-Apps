@@ -1,0 +1,35 @@
+VALID_URL_REGEX = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
+validates :url, presence: true, format: { with: VALID_URL_REGEX }, uniqueness: true
+
+test "url validation should accept valid addresses" do
+  valid_addresses = %w[http://example.com http://www.example.com]
+  valid_addresses.each do |valid_address|
+    @link.url = valid_address
+    assert @link.valid?, "#{valid_address.inspect} should be valid"
+  end
+end
+
+test "url validation should reject invalid addresses" do
+  invalid_addresses = %w[http://example,com http://www.example,com www.example.com example.com]
+  invalid_addresses.each do |invalid_address|
+    @link.url = invalid_address
+    assert_not @link.valid?, "#{invalid_address.inspect} should be invalid"
+  end
+end
+
+test "should be valid" do
+  assert @link.valid?
+end
+
+before_save { self.url = url.downcase }
+
+test "url addresses should be saved as lower-case" do
+  mixed_case_url = "www.ExAMPle.CoM"
+  @link.url = mixed_case_url
+  @link.save
+  assert_equal mixed_case_url.downcase, @link.reload.url
+end
+
+test "should be valid" do
+  assert @answer.valid?
+end

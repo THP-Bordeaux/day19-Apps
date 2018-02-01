@@ -1,24 +1,50 @@
-# README
+# The Hacking News
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Modélisation
 
-Things you may want to cover:
+* Users
+  * email:string [unique, present]
+  * password:string [6-16 chars, present]
+  * id:integer
+  * created_at:datetime
+  * updated_at:datetime
+  * has_many links
+* Links
+  * title:string [unique, present]
+  * url:text [present]
+  * user_id:integer [present]
+  * id:integer
+  * created_at:datetime
+  * updated_at:datetime
+  * belongs to user
+* Comments
+  * commenter:string [present]
+  * body:text [present]
+  * link_id:integer [present]
+  * id:integer
+  * created_at:datetime
+  * updated_at:datetime
+  * has many answers
+* Answers
+  * answerer:string [present]
+  * body:text [present]
+  * comment_id:integer [present]
+  * id:integer
+  * created_at:datetime
+  * updated_at:datetime
+  * belongs to comment
 
-* Ruby version
+## Tests
 
-* System dependencies
+Pour lancer les tests :
+1. Cloner/télécharger le repo en local.
+2. Placer vous dans le dossier *the_hacking_news*.
+3. Lancer la commander rails test:models
 
-* Configuration
+---
 
-* Database creation
+Mode with <3 in Bordeaux - Pierrick & Simon
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Respectivement sur Slack :
+* @Pierrick
+* @simwyck
